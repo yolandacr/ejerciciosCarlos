@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!--
+Autor: Yolanda Cordero
+Curso: 2º DAW
+fecha: Enero 2022
+-->
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Ejercicio 1 Trimestre 2</title>
+    <!-- <link href="HojaEstilos.css" rel="stylesheet"> -->
+  </head>
+
+  <body>
+    <header>
+      <h1>Ejercicio 1 Trimestre 2: Mover la caja con evento</h1>
+      <br />
+      <style>
+            body {
+            min-height: 100vh;
+            min-width: 100vw;
+            margin: 0;
+            padding: 0;
+        }
+      </style>
+    </header>
+
+    <!-- bloque de contenido de la pagina -->
+    <main>
+        <div
+          style="
+            background-color: red;
+            width: 10%;
+            height: 10%;
+            position: absolute;
+          "
+          id="caja"
+        ></div>
+      
+    </main>
+
+    <script>
+      function getMousePosition(event) {
+   
+    console.log(event.clientY, event.clientX);
+    let caja = document.getElementById("caja");
+
+    if (event.clientY <= 100) {
+        caja.style.top = `0`;
+    } else {
+        caja.style.top = `calc(${event.clientY}px - 100px)`;
+    }
+}
+
+document.addEventListener('click', getMousePosition);
+    </script>
+  </body>
+</html>
